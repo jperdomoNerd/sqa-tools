@@ -1,0 +1,14 @@
+.sqatools-container {
+  grid-template-columns: 30% 70%;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 
+    "forms object"
+    "forms object";
+  gap: 1rem;
+}
+.endpoint-name__label {
+  width: 14%;
+}
+.endpoint-name__input {
+  width: 86%;
+}

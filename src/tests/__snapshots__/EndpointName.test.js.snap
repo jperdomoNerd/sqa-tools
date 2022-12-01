@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EndpointName component <EndpointName /> renders correctly 1`] = `
+<div
+  className="endpoint-name"
+>
+  <label
+    className="endpoint-name__label"
+    htmlFor="endpoint-name"
+  >
+    Endpoint:
+  </label>
+  <input
+    className="endpoint-name__input"
+    id="endpoint-name"
+    readOnly={true}
+    type="text"
+  />
+</div>
+`;
