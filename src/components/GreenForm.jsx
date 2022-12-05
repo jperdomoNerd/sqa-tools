@@ -1,4 +1,4 @@
-const GreenForm = () => {
+const GreenForm = ({ greenForm }) => {
   return (
     <form className="form form--green">
       <h3 className="form__title">Parameters in use:</h3>
@@ -13,3 +13,5 @@ const GreenForm = () => {
     </form>
   );
 }
+
+export default GreenForm;

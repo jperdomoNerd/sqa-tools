@@ -17,3 +17,5 @@ const RedForm = () => {
     </form>
   );
 }
+
+export default RedForm;

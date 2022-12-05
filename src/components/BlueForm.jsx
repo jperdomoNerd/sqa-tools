@@ -1,9 +1,19 @@
-const BlueForm = props => {
+import ApplicationOptions from "./ApplicationOptions";
+
+const BlueForm = ({ blueForm,
+  applicationHandleChange,
+  environmentHandleChange,
+  endpointHandleChange,
+  methodHandleChange,
+  transactionHandleChange,
+  responseTypeHandleChange,
+  tokenTypeHandleChange,
+  siteVerifyHandleChange }) => {
   return (
     <form className="form form--blue">
       <div className="form__input-container">
         <label className="form__label">Application:</label>
-        <select className="form__input" value={props.blueForm.application.value} onChange={props.applicationHandleChange}>
+        <select className="form__input" value={blueForm.application.value} onChange={applicationHandleChange}>
           <option value="POS Legacy">POS Legacy</option>
           <option value="Cashiering Legacy">Cashiering Legacy</option>
           <option value="POS Reports Legacy">POS Reports Legacy</option>
@@ -16,7 +26,7 @@ const BlueForm = props => {
       </div>
       <div className="form__input-container">
         <label className="form__label">Environment:</label>
-        <select className="form__input" value={props.blueForm.environment.value} onChange={props.environmentHandleChange}>
+        <select className="form__input" value={blueForm.environment.value} onChange={environmentHandleChange}>
           <option value="https://webtest.cenpos.net/webpay/v7/html5/">Dev</option>
           <option value="https://webqa.cenpos.net/webpay/v7/html5/">QA</option>
           <option value="https://webstaging.cenpos.net/webpay/v7/html5/">Staging: KNX</option>
@@ -28,44 +38,46 @@ const BlueForm = props => {
         </select>
       </div>
 
-      {props.blueForm.method.isShow &&
+      {blueForm.environment.value === 'custom' &&
+        <div className="form__input-container">
+          <label className="form__label">Endpoint:</label>
+          <input className="form__input" value={blueForm.endpoint.value} onChange={endpointHandleChange} />
+        </div>
+      }
+
+      {blueForm.method.isShow &&
         <div className="form__input-container">
           <label className="form__label">Method:</label>
-          <select className="form__input">
+          <select className="form__input" value={blueForm.method.value} onChange={methodHandleChange}>
             <option value="POST">POST</option>
             <option value="GET">GET</option>
           </select>
         </div>
       }
 
-      {props.blueForm.transaction.isShow &&
+      {blueForm.transaction.isShow &&
         <div className="form__input-container">
           <label className="form__label">Transaction:</label>
-          <select className="form__input">
-            <option value="sale">sale</option>
-            <option value="auth">auth</option>
-            <option value="cashoperations">cashoperations</option>
-            <option value="credit">credit</option>
-            <option value="depositslip">depositslip</option>
-            <option value="return">return</option>
+          <select className="form__input" value={blueForm.transaction.value} onChange={transactionHandleChange} >
+            <ApplicationOptions application={blueForm.application.value} />
           </select>
         </div>
       }
 
-      {props.blueForm.responseType.isShow &&
+      {blueForm.responseType.isShow &&
         <div className="form__input-container">
           <label className="form__label">Response Type:</label>
-          <select className="form__input">
+          <select className="form__input" value={blueForm.responseType.value} onChange={responseTypeHandleChange}>
             <option value="none">Redirect</option>
             <option value="callback">Callback</option>
           </select>
         </div>
       }
 
-      {props.blueForm.tokenType.isShow &&
+      {blueForm.tokenType.isShow &&
         <div className="form__input-container">
           <label className="form__label">Token Type:</label>
-          <select className="form__input" value={props.blueForm.tokenType.value} onChange={props.tokenTypeHandleChange}>
+          <select className="form__input" value={blueForm.tokenType.value} onChange={tokenTypeHandleChange}>
             <option value="none">Standard</option>
             <option value="crypto">Crypto</option>
             <option value="token19">Token19</option>
@@ -73,10 +85,10 @@ const BlueForm = props => {
         </div>
       }
 
-      {props.blueForm.siteVerify.isShow &&
+      {blueForm.siteVerify.isShow &&
         <div className="form__input-container">
           <label className="form__label">Site Verify:</label>
-          <select className="form__input" value={props.blueForm.siteVerify.value} onChange={props.siteVerifyHandleChange}>
+          <select className="form__input" value={blueForm.siteVerify.value} onChange={siteVerifyHandleChange}>
             <option value="genericcontroller">GenericController</option>
             <option value="apiecommerce">Ecommerce API</option>
           </select>

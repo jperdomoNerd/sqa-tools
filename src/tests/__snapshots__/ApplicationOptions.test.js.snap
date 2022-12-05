@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationsOptions Component <ApplicationOptions /> renders correctly 1`] = `
+Array [
+  <option
+    value="sale"
+  >
+    sale
+  </option>,
+  <option
+    value="sale19"
+  >
+    sale19
+  </option>,
+  <option
+    value="auth"
+  >
+    auth
+  </option>,
+  <option
+    value="auth19"
+  >
+    auth19
+  </option>,
+  <option
+    value="createtoken"
+  >
+    createtoken
+  </option>,
+  <option
+    value="createtoken19"
+  >
+    createtoken19
+  </option>,
+]
+`;
